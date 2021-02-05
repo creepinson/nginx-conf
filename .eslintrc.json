@@ -1,0 +1,6 @@
+{
+    "extends": ["@theoparis/eslint-config"],
+    "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": 0
+    }
+}

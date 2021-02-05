@@ -1,32 +1,44 @@
 {
-	"name": "nginx-conf",
-	"version": "2.0.0",
-	"description": "Dynamically update nginx configuration files via programmatic API",
-	"license": "MIT",
-	"keywords": [
-		"nginx",
-		"configuration",
-		"parser"
-	],
-	"files": [
-		"dist"
-	],
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"author": "Tommy Montgomery <tmont@tmont.com> (http://tmont.com/)",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/tmont/nginx-conf.git"
-	},
-	"devDependencies": {
-		"@types/node": "14.14.19",
-		"mocha": "8.2.1",
-		"should": "13.2.3",
-		"typescript": "4.1.3"
-	},
-	"scripts": {
-		"build": "node_modules/.bin/tsc",
-		"watch": "node_modules/.bin/tsc --watch --incremental --preserveWatchOutput",
-		"test": "node_modules/.bin/mocha -R spec ./tests"
-	}
+    "name": "@flowtr/nginx-conf",
+    "version": "1.0.0",
+    "description": "Dynamically update nginx configuration files via programmatic API",
+    "license": "MIT",
+    "keywords": [
+        "nginx",
+        "configuration",
+        "parser"
+    ],
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "author": "Theo Paris <theoparisdesigns@gmail.com> (https://theoparis.com/)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/creepinson/nginx-conf.git"
+    },
+    "devDependencies": {
+        "@theoparis/eslint-config": "^1.0.1",
+        "@types/chai": "^4.2.14",
+        "@types/mocha": "^8.2.0",
+        "@types/node": "14.14.25",
+        "@typescript-eslint/eslint-plugin": "^4.14.2",
+        "@typescript-eslint/parser": "^4.14.2",
+        "chai": "^4.3.0",
+        "eslint": "^7.19.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "mocha": "8.2.1",
+        "prettier": "^2.2.1",
+        "ts-mocha": "^8.0.0",
+        "typescript": "4.1.3"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "pnpm run lint && pnpm run build && pnpm run test",
+        "publish:dev": "pnpm publish --access=public --registry http://npm.firenodes.com",
+        "test": "ts-mocha ./tests/**/*.spec.ts",
+        "lint": "eslint --fix src/**/*.ts"
+    }
 }
